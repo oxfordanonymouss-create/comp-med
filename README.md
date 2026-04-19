@@ -6,7 +6,7 @@ The base repository and its male/female ToR-ORd-Land models are described in:
 
 > Holmes M, Wang ZJ, Doste R, et al. *Sex-specific human electromechanical multiscale in-silico models for virtual therapy evaluation.* J Mol Cell Cardiol Plus 2025; 13: 100479. https://doi.org/10.1016/j.jmccpl.2025.100479
 
-All files listed below are additions specific to this project. The original model files ([model_ToRORd_Land_Male.m](model_ToRORd_Land_Male.m), [model_ToRORd_Land_Female.m](model_ToRORd_Land_Female.m), [modelRunner.m](modelRunner.m), etc.) are retained unchanged from the base repo.
+All files listed below are additions specific to this project. The needed original model files ([model_ToRORd_Land_Male.m](model_ToRORd_Land_Male.m), [model_ToRORd_Land_Female.m](model_ToRORd_Land_Female.m), [modelRunner.m](modelRunner.m), etc.) are retained unchanged from the base repo.
 
 ## New scripts
 
