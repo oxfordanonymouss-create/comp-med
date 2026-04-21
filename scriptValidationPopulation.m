@@ -2,13 +2,13 @@
 % scriptSweep_Population_Parallel.m) and produces the qualitative validation
 % figures for the "Population validation" section of the paper.
 %
-% Six figuon't inres are produced (shown on screen, not saved):
+% Six figures are produced (shown on screen, not saved):
 %   - Mean +/- SD dAPD90 vs cell concentration, sex-stratified, one panel
 %     per cell type.
 %   - Boxplots of dAPD90 distributions at low / medium / high cell
 %     concentrations, M vs F, one row per cell type.
 %   - Per-sex and aggregate prevalence of dAPD90 > T ms, one panel per
-%     cell type, T = 30/40/50 overlaid.
+%     cell type, T = 30/40 overlaid (central T = 30, bracket {30, 40}).
 %   - Last-beat AP traces for all population cells at low / medium / high
 %     [ATO], M vs F, one row per cell type.
 %   - Last-beat AP traces at Bangladesh-realistic calibrated [ATO]
@@ -93,11 +93,12 @@ end
 sgtitle('Population \DeltaAPD_{90} distributions at low / medium / high [ATO]');
 
 %% Figure 3: Prevalence of dAPD90 > T, per cell type
-% Per-sex curves at central T = 40 ms; aggregate (M+F 50/50) at T in {30,40,50}.
-T_central = 40;
-T_sens    = [30, 40, 50];
-sensColors = [0.6 0.6 0.6; 0 0 0; 0.4 0.4 0.4];
-sensStyles = {'--', '-', '-.'};
+% Per-sex curves at central T = 30 ms; aggregate (M+F 50/50) at T in {30,40}
+% (Mirams 2014 dQT/dAPD90 scaling 1.35 -> T=30; 1.0 -> T=40).
+T_central = 30;
+T_sens    = [30, 40];
+sensColors = [0 0 0; 0.5 0.5 0.5];
+sensStyles = {'-', '--'};
 
 fig3 = figure('Position', [100 100 1200 350]); clf
 for ct = 1:nCT
@@ -121,8 +122,7 @@ for ct = 1:nCT
         legend({sprintf('Male (T=%d)', T_central), ...
                 sprintf('Female (T=%d)', T_central), ...
                 sprintf('Aggregate (T=%d)', T_sens(1)), ...
-                sprintf('Aggregate (T=%d)', T_sens(2)), ...
-                sprintf('Aggregate (T=%d)', T_sens(3))}, ...
+                sprintf('Aggregate (T=%d)', T_sens(2))}, ...
             'Location', 'northwest', 'FontSize', 9);
     end
 end
@@ -161,11 +161,11 @@ sgtitle('Population AP traces at low / medium / high [ATO]');
 
 %% Figure 5: AP traces at Bangladesh-realistic calibrated concentrations
 % Targets come from scriptConcentrationMapping.m (Mumford-anchor cell
-% concentrations at T = 40 ms central threshold, clustered around
+% concentrations at T = 30 ms central threshold, clustered around
 % 0.02-0.04 umol/L across cell types). The sweep grid has no entry close
 % to 0.04 that is distinct from 0.0302, so the high column is picked at
 % the next available grid point (0.052 umol/L), consistent with the
-% T = 50 ms sensitivity envelope.
+% T = 40 ms sensitivity envelope.
 realisticTargets = [0.024, 0.030, 0.052];
 realIdx = zeros(1, length(realisticTargets));
 for k = 1:length(realisticTargets)

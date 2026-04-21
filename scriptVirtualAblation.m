@@ -1,6 +1,6 @@
 % Virtual ablation: at three reference arsenic concentrations corresponding
 % to the Mumford low / medium / high exposure groups (mapped to cell via
-% scriptConcentrationMapping.m at T = 40 ms central threshold; 0.02, 0.03,
+% scriptConcentrationMapping.m at T = 30 ms central threshold; 0.02, 0.03,
 % 0.04 umol/L), measure how much
 % of the female-minus-male dAPD90 gap remains when each sex-difference
 % factor in the model is swapped from male to female, one at a time. The
